@@ -28,13 +28,9 @@ function createModal(e) {
   if (e.target.nodeName !== "IMG") {
     return;
   }
-// console.log(e.target.src)
-  let gallery = new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
-    captionDelay: 250,
- 
-  });
-
-    gallery.open(e.target.src)
-   
 }
+
+let galleryModal = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
