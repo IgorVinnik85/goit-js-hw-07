@@ -34,11 +34,21 @@ function showModal(event) {
     return;
   }
 
-  const modal = basicLightbox
-    .create(
-      `
+  const modalCreate = basicLightbox.create(
+    `
 				<img width="1400" height="900" src="${event.target.dataset.source}">
 			`
-    )
-    .show();
+  );
+
+  modalCreate.show();
+
+  document.body.addEventListener("keydown", btn);
+
+  function btn(e) {
+    console.log(e.key);
+    if (e.key === "q") {
+      document.body.removeEventListener("keydown", btn);
+      modalCreate.close();
+    }
+  }
 }
